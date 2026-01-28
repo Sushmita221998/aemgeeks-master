@@ -1,0 +1,20 @@
+Welcome to Sports Club.
+<div data-sly-use.model="com.aem.geeks.core.models.SportsClub">
+
+    <div data-sly-list.item="${model.sportsChannels}">
+        <div class="sport-card">
+
+            <h3>${item.stype}</h3>
+
+            <p>Timing: ${item.timing}</p>
+
+            <p>Players: ${item.players}</p>
+
+            <p>Date: ${item.date}</p>
+
+            <p>icon: ${item.icon}</p>
+
+        </div>
+    </div>
+
+</div>
