@@ -1,0 +1,12 @@
+<sly data-sly-test="${wcmmode.edit}" data-sly-unwrap>Test2 Component</sly>
+
+<sly data-sly-use.model="com.aem.geeks.core.models.Test2Model"/>
+
+ID->${model.id}
+Name->${model.name}
+Address->${model.address}
+
+<p>Hobbies -> </p>
+<sly data-sly-list.hobby="${model.hobbiesList}">
+    ${hobby.hobbies}
+</sly>
