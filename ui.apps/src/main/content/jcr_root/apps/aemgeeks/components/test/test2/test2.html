@@ -1,6 +1,10 @@
 <sly data-sly-test="${wcmmode.edit}" data-sly-unwrap>Test2 Component</sly>
 
+<!-- Fetch Values Using Resource class-->
 <sly data-sly-use.model="com.aem.geeks.core.models.Test2Model"/>
+
+<!-- Fetch Values Using SlingHttpServletRequest class-->
+<!-- <sly data-sly-use.model="com.aem.geeks.core.models.Test3Model"/> -->
 
 ID->${model.id}
 Name->${model.name}
