@@ -31,9 +31,6 @@ public class Test3Model {
 	@Inject
 	private String address;
 
-	// NEW APPROACH STARTS HERE ---
-	// @ChildResource(name="multifieldHobbiesSection")
-	// NEW APPROACH ENDS HERE ---
 	private List<Hobbies> hobbiesList;
 
 	// OLD APPROACH STARTS HERE --- USING SlingHttpServletRequest
@@ -41,7 +38,8 @@ public class Test3Model {
 	@PostConstruct
 	protected void init() {
 		LOG.info("Inside init method");
-		if ((request != null) && (request.getResource() != null) && (request.getResource().getChild(MULTIFIELD_CHILD_NODE_NAME) != null)) {
+		if ((request != null) && (request.getResource() != null)
+				&& (request.getResource().getChild(MULTIFIELD_CHILD_NODE_NAME) != null)) {
 			hobbiesList = new ArrayList<Hobbies>();
 			Resource linkRootRes = request.getResource().getChild(MULTIFIELD_CHILD_NODE_NAME);
 			Iterable<Resource> resItr = linkRootRes.getChildren();

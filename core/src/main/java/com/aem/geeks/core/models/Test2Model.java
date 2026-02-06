@@ -30,9 +30,6 @@ public class Test2Model {
 	@Inject
 	private String address;
 
-	// NEW APPROACH STARTS HERE ---
-	// @ChildResource(name="multifieldHobbiesSection")
-	// NEW APPROACH ENDS HERE ---
 	private List<Hobbies> hobbiesList;
 
 	// OLD APPROACH STARTS HERE --- USING RESOURCE
