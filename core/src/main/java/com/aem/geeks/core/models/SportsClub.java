@@ -28,7 +28,7 @@ public class SportsClub {
 
     @PostConstruct
     void init() {
-        if (sports != null) {
+        if ((sports != null)  && (sports.getChild("sports") != null)) {
            Resource childResource = sports.getChild("sports");
             Iterator<Resource> children = childResource.listChildren();
             sportsChannels = new ArrayList<>();
