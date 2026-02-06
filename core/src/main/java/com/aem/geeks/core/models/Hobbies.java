@@ -12,6 +12,11 @@ public class Hobbies {
 	@Inject
 	private String hobbies;
 
+//Only Required for one of the approach for Junit class
+//	public void setHobbies(String hobbies) {
+//		this.hobbies = hobbies;
+//	}
+
 	public String getHobbies() {
 		return hobbies;
 	}
