@@ -9,13 +9,14 @@ import javax.inject.Inject;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Model(adaptables = { Resource.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class Test2Model {
 
-	@Inject
+	@Self
 	private Resource resource;
 
 	private String MULTIFIELD_CHILD_NODE_NAME = "multifieldHobbiesSection";

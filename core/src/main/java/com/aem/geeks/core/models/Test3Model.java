@@ -4,31 +4,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Via;
+import org.apache.sling.models.annotations.injectorspecific.Self;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Model(adaptables = { SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class Test3Model {
 
-	@Inject
+	@Self
 	private SlingHttpServletRequest request;
 
 	private String MULTIFIELD_CHILD_NODE_NAME = "multifieldHobbiesSection";
 	private static final Logger LOG = LoggerFactory.getLogger(Test3Model.class);
 
-	@Inject
+	@ValueMapValue
+	@Via("resource")
 	private String id;
 
-	@Inject
+	@ValueMapValue
+	@Via("resource")
 	private String name;
 
-	@Inject
+	@ValueMapValue
+	@Via("resource")
 	private String address;
 
 	private List<Hobbies> hobbiesList;
