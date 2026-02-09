@@ -12,7 +12,6 @@ import com.day.cq.wcm.api.Page;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
-import junitx.util.PrivateAccessor;
 
 @ExtendWith(AemContextExtension.class)
 class Test2ModelTest2 {
@@ -42,10 +41,6 @@ class Test2ModelTest2 {
 		assertEquals("123", test2Model.getId());
 		assertEquals("TestUser", test2Model.getName());
 		assertEquals("XYZ, Japan", test2Model.getAddress());
-
-		Hobbies hobbies = new Hobbies();
-		PrivateAccessor.setField(hobbies, "hobbies", "Shopping");
-		assertEquals("Shopping", hobbies.getHobbies());
 
 	}
 

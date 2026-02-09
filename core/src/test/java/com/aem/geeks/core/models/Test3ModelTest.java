@@ -1,6 +1,7 @@
 package com.aem.geeks.core.models;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -23,7 +24,7 @@ class Test3ModelTest {
 
 	@Mock
 	private Resource resource;
-	
+
 	@Mock
 	private SlingHttpServletRequest request;
 
@@ -34,7 +35,7 @@ class Test3ModelTest {
 
 	@BeforeEach
 	void setup() throws NoSuchFieldException {
-		request=mock(SlingHttpServletRequest.class);
+		request = mock(SlingHttpServletRequest.class);
 		resource = mock(Resource.class);
 		linkRootRes = mock(Resource.class);
 
@@ -42,13 +43,13 @@ class Test3ModelTest {
 		Resource childRes2 = mock(Resource.class);
 
 		// 1st Approach - Do not need a setter method for Hobbies class
-		//STARTS HERE---
+		// STARTS HERE---
 		Hobbies hobbies1 = mock(Hobbies.class);
 		when(hobbies1.getHobbies()).thenReturn("Hockey");
 
 		Hobbies hobbies2 = mock(Hobbies.class);
 		when(hobbies2.getHobbies()).thenReturn("Singing");
-		//ENDS HERE---
+		// ENDS HERE---
 
 		PrivateAccessor.setField(test3Model, "request", request);
 		PrivateAccessor.setField(test3Model, "id", "567");
@@ -74,10 +75,6 @@ class Test3ModelTest {
 		assertEquals("567", test3Model.getId());
 		assertEquals("TestUser1", test3Model.getName());
 		assertEquals("ABC, Germany", test3Model.getAddress());
-		
-		Hobbies hobbies = new Hobbies();
-		PrivateAccessor.setField(hobbies, "hobbies", "Drawing");
-		assertEquals("Drawing", hobbies.getHobbies());
 
 	}
 

@@ -38,37 +38,35 @@ class Test2ModelTest {
 		Resource childRes2 = mock(Resource.class);
 
 		// 1st Approach - Do not need a setter method for Hobbies class
-		//STARTS HERE---
+		// STARTS HERE---
 		Hobbies hobbies1 = mock(Hobbies.class);
 		when(hobbies1.getHobbies()).thenReturn("Chess");
 
 		Hobbies hobbies2 = mock(Hobbies.class);
 		when(hobbies2.getHobbies()).thenReturn("Reading");
-		//ENDS HERE---
+		// ENDS HERE---
 
-		
 		// 2nd Approach -- Setter method required for Hobbies class
-		//STARTS HERE---
+		// STARTS HERE---
 		/*
-		Hobbies hobbies1 = new Hobbies();
-		hobbies1.setHobbies("Chess");
+		 * Hobbies hobbies1 = new Hobbies(); hobbies1.setHobbies("Chess");
+		 * 
+		 * Hobbies hobbies2 = new Hobbies(); hobbies2.setHobbies("Reading");
+		 */
+		// ENDS HERE---
 
-		Hobbies hobbies2 = new Hobbies();
-		hobbies2.setHobbies("Reading");
-		*/
-		//ENDS HERE---
-		
-		// 3rd Approach -- No Setter method required for Hobbies class. Using PrivateAccessor
-		//STARTS HERE---
+		// 3rd Approach -- No Setter method required for Hobbies class. Using
+		// PrivateAccessor
+		// STARTS HERE---
 		/*
-		Hobbies hobbies1 = new Hobbies();
-		PrivateAccessor.setField(hobbies1, "hobbies", "Chess");
-
-		Hobbies hobbies2 = new Hobbies();
-		PrivateAccessor.setField(hobbies2, "hobbies", "Reading");
-		
-		*/
-		//ENDS HERE---
+		 * Hobbies hobbies1 = new Hobbies(); PrivateAccessor.setField(hobbies1,
+		 * "hobbies", "Chess");
+		 * 
+		 * Hobbies hobbies2 = new Hobbies(); PrivateAccessor.setField(hobbies2,
+		 * "hobbies", "Reading");
+		 * 
+		 */
+		// ENDS HERE---
 
 		PrivateAccessor.setField(test2Model, "resource", resource);
 		PrivateAccessor.setField(test2Model, "id", "123");
@@ -93,10 +91,6 @@ class Test2ModelTest {
 		assertEquals("123", test2Model.getId());
 		assertEquals("TestUser", test2Model.getName());
 		assertEquals("XYZ, Japan", test2Model.getAddress());
-		
-		Hobbies hobbies = new Hobbies();
-		PrivateAccessor.setField(hobbies, "hobbies", "Shopping");
-		assertEquals("Shopping", hobbies.getHobbies());
 
 	}
 

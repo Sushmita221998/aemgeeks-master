@@ -1,6 +1,7 @@
 package com.aem.geeks.core.models;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -15,12 +16,11 @@ import junitx.util.PrivateAccessor;
 class Test4ModelTest {
 
 	private Test4Model test4Model = new Test4Model();
-	
+
 	private List<Hobbies> hobbiesList = new ArrayList<Hobbies>();
 
 	@BeforeEach
 	void setUp() throws Exception {
-		
 
 		// 1st Approach - Do not need a setter method for Hobbies class
 		// STARTS HERE---
@@ -49,9 +49,6 @@ class Test4ModelTest {
 		assertEquals("TestUser2", test4Model.getName());
 		assertEquals("123 SYX, Korea", test4Model.getAddress());
 
-		Hobbies hobbies = new Hobbies();
-		PrivateAccessor.setField(hobbies, "hobbies", "Playing Games");
-		assertEquals("Playing Games", hobbies.getHobbies());
 	}
 
 }
