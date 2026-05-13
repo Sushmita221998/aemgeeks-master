@@ -22,9 +22,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.aem.geeks.core.config.TestSlingSchedulerConfig;
+import com.aem.geeks.core.config.TestSlingSchedulerConfig4;
 
 @Component(service = Runnable.class, immediate = true)
-@Designate(ocd = TestSlingSchedulerConfig.class)
+@Designate(ocd = TestSlingSchedulerConfig4.class)
 public class TestSlingScheduler4 implements Runnable {
 
 	private static final Logger log = LoggerFactory.getLogger(TestSlingScheduler4.class);

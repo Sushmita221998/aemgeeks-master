@@ -20,9 +20,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.aem.geeks.core.config.TestSlingSchedulerConfig;
+import com.aem.geeks.core.config.TestSlingSchedulerConfig2;
 
 @Component(service = Runnable.class, immediate = true)
-@Designate(ocd = TestSlingSchedulerConfig.class)
+@Designate(ocd = TestSlingSchedulerConfig2.class)
 public class TestSlingScheduler2 implements Runnable {
 
 	private static final Logger LOG = LoggerFactory.getLogger(TestSlingScheduler2.class);
@@ -46,6 +47,7 @@ public class TestSlingScheduler2 implements Runnable {
 
 	@Activate
 	protected void activate(TestSlingSchedulerConfig config) {
+		LOG.info("Inside activate method");
 		this.cronExp = config.cronExpression();
 		this.schedulerName = config.schedulerName();
 		ScheduleOptions schedulerOptions = scheduler.EXPR(cronExp);

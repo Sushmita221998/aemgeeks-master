@@ -22,11 +22,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.aem.geeks.core.config.TestSlingSchedulerConfig;
+import com.aem.geeks.core.config.TestSlingSchedulerConfig3;
 import com.day.cq.replication.ReplicationActionType;
 import com.day.cq.replication.Replicator;
 
 @Component(service = Runnable.class, immediate = true)
-@Designate(ocd = TestSlingSchedulerConfig.class)
+@Designate(ocd = TestSlingSchedulerConfig3.class)
 public class TestSlingScheduler3 implements Runnable {
 
 	private static final Logger LOG = LoggerFactory.getLogger(TestSlingScheduler3.class);

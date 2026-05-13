@@ -1,0 +1,18 @@
+package com.aem.geeks.core.config;
+
+import org.osgi.service.metatype.annotations.AttributeDefinition;
+import org.osgi.service.metatype.annotations.ObjectClassDefinition;
+
+@ObjectClassDefinition(name="Test Sling Scheduler Config 2")
+public @interface TestSlingSchedulerConfig2 {
+
+	@AttributeDefinition(name="Cron Expression", description="Give the Cron Expression")
+	String cronExpression() default "0/5 * * * * ?";
+	
+	@AttributeDefinition(name="Scheduler name", description="Name of the Scheduler")
+	String schedulerName() default "Test Sling Scheduler 2";
+	
+	@AttributeDefinition(name="Page Path", description="The Page Path")
+	String pagePath() default "/content/aemgeeks/us/en";
+	
+}
