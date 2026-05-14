@@ -49,29 +49,34 @@ public class ResourceChangeListenerTest3 implements ResourceChangeListener {
 				}
 
 				Resource resource = resolver.getResource(path);
-				// Resource metadata = resource.getChild("jcr:content");
 				if (resource != null) {
-					ValueMap valueMapData = resource.getValueMap();
+					//Get Metadata Properties
+					Resource metadataResource = resource.getChild("jcr:content/metadata");
+					if (metadataResource != null) {
+						ValueMap metadata = metadataResource.getValueMap();
 
-					// log.info("valueMap data"+valueMapData);
+						String title = metadata.get("dc:title", String.class);
+						String description = metadata.get("dc:description", String.class);
+						String format = metadata.get("dc:format", String.class);
+						String creator = metadata.get("dc:creator", String.class);
 
-					// String title = valueMapData.get("jcr:title", String.class);
-//					String mimeType = valueMapData.get("jcr:mimeType", String.class);
+						log.info("Title: {}", title);
+						log.info("Description: {}", description);
+						log.info("Format: {}", format);
+						log.info("Creator: {}", creator);
 
-					String mixinTypeData = valueMapData.get("jcr:mixinTypes", String.class);
-//					String title = valueMapData.get("dc:title", String.class);
-//					String description = valueMapData.get("dc:description", String.class);
-					switch (changeType) {
-					case ADDED:
-						log.info("Asset ADDED at: {} by user: {}", path, userId);
-						break;
-					case CHANGED:
-						log.info("Asset MODIFIFED at: {} by user: {} changed properties: {}", path, userId,
-								mixinTypeData);
-						break;
-					default:
-						break;
+						switch (changeType) {
+						case ADDED:
+							log.info("Asset ADDED at: {} by user: {}", path, userId);
+							break;
+						case CHANGED:
+							log.info("Asset MODIFIFED at: {} by user: {} changed properties: {}", path, userId, title,
+									description, format, creator);
+							break;
+						default:
+							break;
 
+						}
 					}
 				}
 			}

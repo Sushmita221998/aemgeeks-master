@@ -7,7 +7,7 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 public @interface TestSlingSchedulerConfig {
 
 	@AttributeDefinition(name="Cron Expression", description="Give the Cron Expression")
-	String cronExpression() default "0/10 * * * * ?";
+	String cronExpression() default "0 0 12 * * ?";
 	
 	@AttributeDefinition(name="Scheduler name", description="Name of the Scheduler")
 	String schedulerName() default "Test Sling Scheduler";
