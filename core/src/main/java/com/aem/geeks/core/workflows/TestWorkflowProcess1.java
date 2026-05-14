@@ -57,6 +57,7 @@ public class TestWorkflowProcess1 implements WorkflowProcess {
 				}
 
 				resolver.commit();
+				// IMPORTANT -------- Always Complete the workflow Session and Select Handler Advance CheckBox at Workflow Level
 				workflowSession.complete(workItem, workflowSession.getRoutes(workItem, false).get(0));
 			} catch (Exception e) {
 				log.error("Exception occured: {}", e.getMessage());
